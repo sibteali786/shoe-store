@@ -17,14 +17,15 @@ import { grey } from "@material-ui/core/colors";
 function App() {
   const classes = useStyles();
   return (
-    <div>
+    <div className="body">
       <Container>
         <Router>
           <nav>
+            <div className={classes.toolbar}></div>
             <AppBar
               className={classes.backColor}
               // className={classes.appbar}
-              elevation={0}
+              elevation={2}
             >
               <Toolbar className={classes.root}>
                 <Typography variant="h6" className={classes.h6}>
@@ -32,11 +33,23 @@ function App() {
                     Home
                   </Link>
                 </Typography>
+                <Typography variant="h6" className={classes.h6}>
+                  <Link to="product" className="list">
+                    Product
+                  </Link>
+                </Typography>
+                <Typography variant="h6" className={classes.h6}>
+                  <Link to="about" className="list">
+                    About
+                  </Link>
+                </Typography>
               </Toolbar>
             </AppBar>
           </nav>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="product" element={<Product />} />
+            <Route path="about" element={<About />} />
           </Routes>
         </Router>
       </Container>
@@ -50,13 +63,14 @@ const useStyles = makeStyles((theme) => {
   return {
     root: {
       display: "flex",
-      justifyContent: "flex-end",
+      justifyContent: "center",
     },
     backColor: {
       backgroundColor: "#181719",
     },
     h6: {
       fontSize: "1rem",
+      marginLeft: theme.spacing(3),
       transition: "0.2s ease-in",
       "&:hover": {
         textDecoration: "underline",
@@ -65,5 +79,6 @@ const useStyles = makeStyles((theme) => {
         transform: "scale(1.1)",
       },
     },
+    toolbar: theme.mixins.toolbar,
   };
 });
