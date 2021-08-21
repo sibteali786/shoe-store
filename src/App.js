@@ -2,6 +2,7 @@ import "./App.css";
 import Home from "./components/Home";
 import Product from "./components/Product";
 import About from "./components/About";
+import ProductList from "./components/ProductList";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -25,7 +26,7 @@ function App() {
             <AppBar
               className={classes.backColor}
               // className={classes.appbar}
-              elevation={2}
+              elevation={0}
             >
               <Toolbar className={classes.root}>
                 <Typography variant="h6" className={classes.h6}>
@@ -48,7 +49,9 @@ function App() {
           </nav>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="product" element={<Product />} />
+            <Route path="product" element={<Product />}>
+              <Route path="/" element={<ProductList />}></Route>
+            </Route>
             <Route path="about" element={<About />} />
           </Routes>
         </Router>

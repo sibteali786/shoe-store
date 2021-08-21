@@ -15,6 +15,7 @@
     "react-router": "^6.0.0-beta.0",
     "react-router-dom": "^6.0.0-beta.0",
     "react-scripts": "4.0.3",
+    "sneaks-api": "^1.1.8",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

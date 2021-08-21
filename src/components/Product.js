@@ -1,7 +1,7 @@
 import React from "react";
-
+import { Outlet } from "react-router-dom";
 function Product() {
-  return <div>Its Product Display Page</div>;
+  return <div><Outlet/></div>;
 }
 
 export default Product;
