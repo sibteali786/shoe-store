@@ -13,50 +13,89 @@ import Typography from "@material-ui/core/Typography";
 import { yellow } from "@material-ui/core/colors";
 import cx from "react-cx";
 import { createTheme, ThemeProvider } from "@material-ui/core";
+import { useEffect, useState } from "react";
+import Masonry from "react-masonry-css";
 function ProductList() {
+  const breakpoints = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
+  const [productData, setproductData] = useState([]);
+  useEffect(() => {
+    requestSneakers();
+  }, []);
+
+  async function requestSneakers() {
+    try {
+      const data = await fetch(
+        `https://stockx.com/api/browse?productCategory=sneakers&_search=all&dataType=product`
+      );
+      const jsonData = await data.json();
+      const { Products } = jsonData;
+      const modProducts = Products.map((prod) => ({
+        id: prod.id,
+        Brand: prod.brand,
+        category: prod.category,
+        Gender: prod.gender,
+        description: prod.description,
+        Title: prod.title,
+        Name: prod.name,
+        Price: prod.retailPrice,
+        Media: prod.media,
+      }));
+      setproductData(modProducts);
+      console.log(modProducts);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const classes = useStyles();
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Grid
-          container
-          spacing={2}
-          direction="row"
-          alignItems="space-between"
-          justifyContent="center"
+        <Masonry
+          breakpointCols={breakpoints}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
         >
-          {Object.entries(shoes).map(([keyId, { name, img }]) => (
-            <Grid item key={keyId} xs={12} sm={6} md={3}>
-              <Card elevation={2} className={classes.animate}>
+          {productData.map((prod) => (
+            <div>
+              <Card elevation={2} className={`${classes.animate}`}>
                 <CardHeader
-                  avatar={<Avatar className={classes.color}>{"N"}</Avatar>}
-                  action={
-                    <IconButton>
-                      <DeleteOutlined />
-                    </IconButton>
+                  avatar={
+                    <Avatar className={classes.color}>
+                      {prod.Title[0].toUpperCase()}
+                    </Avatar>
                   }
-                  title={name}
+                  title={prod.Title}
+                  subheader={prod.Name}
                   className={`${classes.bodyText}`}
                 />
                 <CardActionArea>
                   <CardMedia
-                    title={name.toUpperCase()}
-                    image={img}
-                    src={img}
-                    className={`${classes.media}`}
+                    component="img"
+                    title={prod.Title.toUpperCase()}
+                    image={prod.Media.thumbUrl}
+                    src={prod.Media.thumbUrl}
+                    height="200"
                   />
                   <CardContent>
-                    <Typography variant="body1" color="textSecondary">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Tempora, rem commodi deleniti ducimus iure dolores saepe
-                      mollitia! Quaerat tenetur tempore cupiditate.
-                    </Typography>
+                    <div className={classes.disp}>
+                      <Typography variant="h6" color="primary">
+                        Price
+                      </Typography>
+                      <Typography variant="h6" color="primary">
+                        ${prod.Price}
+                      </Typography>
+                    </div>
                   </CardContent>
                 </CardActionArea>
               </Card>
-            </Grid>
+            </div>
           ))}
-        </Grid>
+        </Masonry>
       </ThemeProvider>
     </div>
   );
@@ -64,28 +103,10 @@ function ProductList() {
 
 export default ProductList;
 
-const shoes = {
-  Puma: {
-    name: "Diesel",
-    img: "https://cdn.shopify.com/s/files/1/1692/9471/products/7b4e56ad-b683-43dd-adcd-38b842485311-Img-shoe_800x.jpg?v=1629545582",
-  },
-  Adidas: {
-    name: "Salomon",
-    img: "https://cdn.shopify.com/s/files/1/1692/9471/products/ae144579-3a34-4e00-adfd-cb1e07712215-Img-shoe_800x.jpg?v=1629527629",
-  },
-  Nike: {
-    name: "Nike",
-    img: "https://cdn.shopify.com/s/files/1/1692/9471/products/7fcc9a26-70a7-4272-aed1-16063595475a-Img-shoe_800x.jpg?v=1629545536 ",
-  },
-};
-
 const useStyles = makeStyles((theme) => {
   return {
     color: {
       backgroundColor: yellow[700],
-    },
-    media: {
-      height: 200,
     },
     animate: {
       transition: "0.2s ease-in-out",
@@ -93,18 +114,28 @@ const useStyles = makeStyles((theme) => {
         transform: "scale(1.05)",
       },
     },
+    disp: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
   };
 });
 
 const theme = createTheme({
-  typography: {
-    body2: {
-      fontWeight: 600,
-      textTransform: "uppercase",
-      letterSpacing: "0.2em",
+  palette: {
+    primary: {
+      main: "#212121",
     },
-    body1: {
-      fontSize: "0.8rem",
+  },
+  typography: {
+    h6: {
+      fontSize: "1.5rem",
+      fontWeight: 700,
+      textTransform: "uppercase",
+    },
+    body2: {
+      lineHeight: 1.2,
     },
   },
 });

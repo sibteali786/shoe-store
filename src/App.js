@@ -18,11 +18,10 @@ function App() {
       <Container>
         <Router>
           <nav>
-            <div className={classes.toolbar}></div>
+            <div className={`${classes.toolbar} ${classes.margintop}`}></div>
             <AppBar
-              className={classes.backColor}
+              className={`${classes.backColor} ${classes.elevation4}`}
               // className={classes.appbar}
-              elevation={0}
             >
               <Toolbar className={classes.root}>
                 <Typography variant="h6" className={classes.h6}>
@@ -68,10 +67,10 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: "#181719",
     },
     h6: {
-      fontSize: "1.2rem",
+      fontSize: "1rem",
       fontWeight: "700",
       marginLeft: theme.spacing(3),
-      transition: "0.3s ease-in",
+      transition: "0.2s ease-in",
       "&:hover": {
         textDecoration: "underline",
         textUnderlinePosition: "under",
@@ -80,7 +79,12 @@ const useStyles = makeStyles((theme) => {
       },
     },
     toolbar: theme.mixins.toolbar,
+    margintop: {
+      marginTop: theme.spacing(15),
+    },
+    elevation4: {
+      boxShadow:
+        "0px 10px 10px -3px rgba(255, 253, 253, 0.2),0px 10px 14px 1px rgba(255, 253, 253, 0.14),0px 4px 18px 3px rgba(255, 255, 255, 0.12)",
+    },
   };
 });
-
-
