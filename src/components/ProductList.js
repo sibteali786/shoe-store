@@ -18,8 +18,8 @@ import Masonry from "react-masonry-css";
 function ProductList() {
   const breakpoints = {
     default: 4,
-    1100: 3,
-    700: 2,
+    1200: 3,
+    750: 2,
     500: 1,
   };
   const [productData, setproductData] = useState([]);
@@ -62,7 +62,7 @@ function ProductList() {
         >
           {productData.map((prod) => (
             <div>
-              <Card elevation={2} className={`${classes.animate}`}>
+              <Card key={prod.id} elevation={2} className={`${classes.animate}` }>
                 <CardHeader
                   avatar={
                     <Avatar className={classes.color}>
@@ -76,10 +76,9 @@ function ProductList() {
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    title={prod.Title.toUpperCase()}
+                    title={prod.Title}
                     image={prod.Media.thumbUrl}
                     src={prod.Media.thumbUrl}
-                    height="200"
                   />
                   <CardContent>
                     <div className={classes.disp}>
@@ -133,9 +132,12 @@ const theme = createTheme({
       fontSize: "1.5rem",
       fontWeight: 700,
       textTransform: "uppercase",
+      fontFamily: "Montserrat",
     },
     body2: {
+      fontSize: "0.8rem",
       lineHeight: 1.2,
+      fontFamily: "Montserrat",
     },
   },
 });
