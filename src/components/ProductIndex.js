@@ -8,19 +8,25 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core";
+import WarningIcon from "@material-ui/icons/Warning";
+import { red } from "@material-ui/core/colors";
 function ProductIndex({ productData }) {
   const classes = useStyles();
 
   const { productId } = useParams();
   const product = productData.filter((prod) => prod.Url === productId);
   if (!product[0]) {
-    return <h2>Not Found</h2>;
+    return (
+      <div className="arrange">
+        <WarningIcon className={classes.root} />
+        <h2 style={{ marginLeft: "20px", color: "red" }}>Not Found !</h2>
+      </div>
+    );
   }
   const { Name, Media, Title, Price, Brand, Category, description } =
     product[0];
   return (
     <div>
-
       <ThemeProvider theme={theme}>
         <Grid
           container
@@ -104,6 +110,10 @@ const useStyles = makeStyles((theme) => {
     },
     content: {
       color: "rgb(255,255,255,1)",
+    },
+    root: {
+      fontSize: "5rem",
+      color: red[800],
     },
   };
 });

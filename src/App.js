@@ -4,6 +4,7 @@ import Product from "./components/Product";
 import About from "./components/About";
 import ProductList from "./components/ProductList";
 import ProductIndex from "./components/ProductIndex";
+import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -94,6 +95,7 @@ function App() {
               ></Route>
             </Route>
             <Route path="about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
       </Container>
