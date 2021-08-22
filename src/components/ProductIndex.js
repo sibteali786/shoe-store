@@ -13,10 +13,14 @@ function ProductIndex({ productData }) {
 
   const { productId } = useParams();
   const product = productData.filter((prod) => prod.Url === productId);
+  if (!product[0]) {
+    return <h2>Not Found</h2>;
+  }
   const { Name, Media, Title, Price, Brand, Category, description } =
     product[0];
   return (
     <div>
+
       <ThemeProvider theme={theme}>
         <Grid
           container
@@ -40,7 +44,10 @@ function ProductIndex({ productData }) {
                 />
               </div>
               <div>
-                <CardHeader title={`${Brand}`}  className={`${classes.content}`} />
+                <CardHeader
+                  title={`${Brand}`}
+                  className={`${classes.content}`}
+                />
                 <CardContent>
                   <Typography variant="h4">{Name}</Typography>
                   <Typography variant="body1">{Title}</Typography>
