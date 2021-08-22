@@ -4,10 +4,6 @@ import Product from "./components/Product";
 import About from "./components/About";
 import ProductList from "./components/ProductList";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core";
@@ -72,16 +68,19 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: "#181719",
     },
     h6: {
-      fontSize: "1rem",
+      fontSize: "1.2rem",
+      fontWeight: "700",
       marginLeft: theme.spacing(3),
-      transition: "0.2s ease-in",
+      transition: "0.3s ease-in",
       "&:hover": {
         textDecoration: "underline",
         textUnderlinePosition: "under",
         textDecorationThickness: "1.5px",
-        transform: "scale(1.1)",
+        transform: "scale(1.2)",
       },
     },
     toolbar: theme.mixins.toolbar,
   };
 });
+
+
