@@ -49,7 +49,7 @@ function App() {
       <Container>
         <Router>
           <nav>
-            <div className={`${classes.toolbar}`}></div>
+            <div className={`${classes.toolbar} ${classes.margintop}`}></div>
             <AppBar
               className={`${classes.backColor} ${classes.elevation4}`}
               // className={classes.appbar}
@@ -129,7 +129,9 @@ const useStyles = makeStyles((theme) => {
       },
     },
     toolbar: theme.mixins.toolbar,
-
+    margintop: {
+      marginTop: theme.spacing(15),
+    },
     elevation4: {
       boxShadow:
         "0px 6px 6px -3px rgba(0, 0, 0, 0.2),0px 6px 10px 1px rgba(0, 0, 0, 0.14),0px 2px 14px 3px rgba(0, 0, 0, 0.12)",
