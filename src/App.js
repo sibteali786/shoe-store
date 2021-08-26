@@ -35,7 +35,7 @@ function App() {
         Name: prod.name,
         Price: prod.retailPrice,
         Media: prod.media,
-        Url:prod.urlKey
+        Url: prod.urlKey,
       }));
       setproductData(modProducts);
       console.log(Products);
@@ -49,7 +49,7 @@ function App() {
       <Container>
         <Router>
           <nav>
-            <div className={`${classes.toolbar} ${classes.margintop}`}></div>
+            <div className={`${classes.toolbar}`}></div>
             <AppBar
               className={`${classes.backColor} ${classes.elevation4}`}
               // className={classes.appbar}
@@ -91,7 +91,7 @@ function App() {
               ></Route>
               <Route
                 path=":productId"
-                element={<ProductIndex productData={productData}  />}
+                element={<ProductIndex productData={productData} />}
               ></Route>
             </Route>
             <Route path="about" element={<About />} />
@@ -113,7 +113,7 @@ const useStyles = makeStyles((theme) => {
       alignItems: "center",
     },
     backColor: {
-      backgroundColor: "#181719",
+      backgroundColor: "#010101",
     },
     h6: {
       fontSize: "1rem",
@@ -129,9 +129,7 @@ const useStyles = makeStyles((theme) => {
       },
     },
     toolbar: theme.mixins.toolbar,
-    margintop: {
-      marginTop: theme.spacing(15),
-    },
+
     elevation4: {
       boxShadow:
         "0px 6px 6px -3px rgba(0, 0, 0, 0.2),0px 6px 10px 1px rgba(0, 0, 0, 0.14),0px 2px 14px 3px rgba(0, 0, 0, 0.12)",

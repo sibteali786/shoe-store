@@ -38,7 +38,7 @@
 }
 body {
   color: #ffffff;
-  background-color: #181719;
+  background-color: #010101;
 }
 .list {
   list-style-type: none;
@@ -71,3 +71,16 @@ body {
   font-family: "Montserrat";
 }
 
+.image {
+  background-image: url("./images/old.jpg");
+  max-width: 800px;
+  height: 530px;
+  width: 100%;
+  object-fit: cover;
+}
+.display {
+  display: flex;
+  flex-flow: row no-wrap;
+  align-items: center;
+  justify-content: space-between;
+}
