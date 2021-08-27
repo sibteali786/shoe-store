@@ -15,10 +15,15 @@ function Home() {
     <div style={{ fontFamily: "Montserrat" }}>
       <ThemeProvider theme={theme}>
         <div className={`${classes.root}`}>
-          <Grid item className={`${classes.OnDiv}`}>
-            <Typography variant="h2">Welcome to Shoe Store !</Typography>
+          <Grid item className={`${classes.OnDiv} `}>
+            <Typography variant="h2" className={`${classes.headMargin}`}>
+              Welcome to Shoe Store !
+            </Typography>
 
-            <Typography variant="textPrimary">
+            <Typography
+              variant="textPrimary"
+              className={`${classes.headMargin}`}
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
               voluptates dolor eveniet culpa magnam id quod commodi ex
               cupiditate! Sit dolore cupiditate repellat magnam obcaecati sunt
@@ -56,9 +61,12 @@ const useStyles = makeStyles((theme) => {
     },
     OnDiv: {
       width: "60%",
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down(850)]: {
         width: "80%",
       },
+    },
+    headMargin: {
+      marginBottom: theme.spacing(3),
     },
   };
 });
