@@ -59,9 +59,9 @@ const useStyles = makeStyles((theme) => {
       },
     },
     OnDiv: {
-      width: "60%",
+      width: "50%",
       [theme.breakpoints.down(850)]: {
-        width: "80%",
+        width: "60%",
       },
     },
     headMargin: {

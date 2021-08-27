@@ -44,8 +44,8 @@ function ProductIndex({ productData }) {
             <CardHeader title={`${Brand}`} className={`${classes.content}`} />
             <CardContent>
               <Typography variant="h4">{Name}</Typography>
-              <Typography variant="body1">{Title}</Typography>
-              <Typography variant="body2">{description}</Typography>
+              <Typography variant="h6">{Title}</Typography>
+              <Typography variant="body1">{description}</Typography>
               <div className={`${classes.disp}`}>
                 <Typography variant="h4">Price</Typography>
                 <Typography variant="h4">${Price}</Typography>
@@ -71,11 +71,8 @@ let theme = createTheme({
       color: "rgb(255, 255, 255,1)",
     },
     body1: {
-      fontWeight: 700,
+      fontWeight: 100,
       color: "rgb(255, 255, 255,1)",
-    },
-    body2: {
-      color: "rgb(255, 255, 255,0.5)",
     },
   },
 });

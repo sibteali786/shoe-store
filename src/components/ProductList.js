@@ -43,7 +43,6 @@ function ProductList({ productData }) {
                     }
                     title={prod.Title}
                     subheader={prod.Name}
-                    className={`${classes.bodyText}`}
                   />
                   <CardActionArea>
                     <CardMedia

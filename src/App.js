@@ -59,7 +59,7 @@ function App() {
   };
   return (
     <div className="body">
-      <Container>
+      <Container classes={{ maxWidthLg: `${classes.maxWidthLg}` }}>
         <Router>
           <nav>
             <div className={`${classes.toolbar} ${classes.margintop}`}></div>
@@ -152,6 +152,9 @@ export default App;
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => {
   return {
+    maxWidthLg: {
+      maxWidth: 1350,
+    },
     root: {
       display: "flex",
       justifyContent: "space-between",
