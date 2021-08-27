@@ -7,7 +7,11 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@material-ui/core";
 import WarningIcon from "@material-ui/icons/Warning";
 import { red } from "@material-ui/core/colors";
 function ProductIndex({ productData }) {
@@ -18,62 +22,44 @@ function ProductIndex({ productData }) {
   if (!product[0]) {
     return (
       <div className="arrange">
-        <WarningIcon className={classes.root} />
+        <WarningIcon className={classes.disp} />
         <h2 style={{ marginLeft: "20px", color: "red" }}>Not Found !</h2>
       </div>
     );
   }
-  const { Name, Media, Title, Price, Brand, Category, description } =
-    product[0];
+  const { Name, Media, Title, Price, Brand, description } = product[0];
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Grid
-          container
-          spacing={2}
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Grid item xs={{ maxWidth: "100%", flexBasis: "100%" }}>
-            <Card
-              elevation={20}
-              className={`${classes.disp} ${classes.backcolor}`}
-            >
-              <div>
-                <CardMedia
-                  component="img"
-                  title={Title}
-                  image={Media.smallImageUrl}
-                  src={Media.smallImageUrl}
-                  className={`${classes.media}`}
-                />
+        <Card elevation={20} className={`${classes.root} ${classes.backcolor}`}>
+          <div>
+            <CardMedia
+              component="img"
+              title={Title}
+              image={Media.smallImageUrl}
+              src={Media.smallImageUrl}
+            />
+          </div>
+          <div>
+            <CardHeader title={`${Brand}`} className={`${classes.content}`} />
+            <CardContent>
+              <Typography variant="h4">{Name}</Typography>
+              <Typography variant="body1">{Title}</Typography>
+              <Typography variant="body2">{description}</Typography>
+              <div className={`${classes.disp}`}>
+                <Typography variant="h4">Price</Typography>
+                <Typography variant="h4">${Price}</Typography>
               </div>
-              <div>
-                <CardHeader
-                  title={`${Brand}`}
-                  className={`${classes.content}`}
-                />
-                <CardContent>
-                  <Typography variant="h4">{Name}</Typography>
-                  <Typography variant="body1">{Title}</Typography>
-                  <Typography variant="body2">{description}</Typography>
-                  <div className={`${classes.disp}`}>
-                    <Typography variant="h4">Price</Typography>
-                    <Typography variant="h4">${Price}</Typography>
-                  </div>
-                </CardContent>
-              </div>
-            </Card>
-          </Grid>
-        </Grid>
+            </CardContent>
+          </div>
+        </Card>
       </ThemeProvider>
     </div>
   );
 }
 
 export default ProductIndex;
-const theme = createTheme({
+let theme = createTheme({
   typography: {
     fontFamily: "Montserrat",
     h5: {
@@ -93,17 +79,18 @@ const theme = createTheme({
     },
   },
 });
+
+theme = responsiveFontSizes(theme);
 const useStyles = makeStyles((theme) => {
   return {
-    disp: {
+    root: {
       display: "flex",
       flexFlow: "row nowrap",
       justifyContent: "space-between",
-    },
-    media: {
-      height: "auto",
-      width: "auto",
-      maxWidth: "250",
+      [theme.breakpoints.down(850)]: {
+        flexDirection: "column",
+        alignItems: "flex-start",
+      },
     },
     backcolor: {
       backgroundColor: "rgb(0,0,0,1)",
@@ -111,7 +98,7 @@ const useStyles = makeStyles((theme) => {
     content: {
       color: "rgb(255,255,255,1)",
     },
-    root: {
+    disp: {
       fontSize: "5rem",
       color: red[800],
     },

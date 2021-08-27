@@ -3,7 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core";
-import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import {
   createTheme,
   ThemeProvider,
