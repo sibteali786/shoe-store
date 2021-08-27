@@ -1,5 +1,4 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
@@ -11,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { yellow } from "@material-ui/core/colors";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import Masonry from "react-masonry-css";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 function ProductList({ productData }) {
   const breakpoints = {
     default: 4,
@@ -31,42 +30,41 @@ function ProductList({ productData }) {
           {productData.map((prod) => (
             <div>
               <Link to={`/product/${prod.Url}`} className="list">
-              <Card
-                key={prod.id}
-                elevation={2}
-                className={`${classes.animate}`}
-              >
-                
-                <CardHeader
-                  avatar={
-                    <Avatar className={classes.color}>
-                      {prod.Title[0].toUpperCase()}
-                    </Avatar>
-                  }
-                  title={prod.Title}
-                  subheader={prod.Name}
-                  className={`${classes.bodyText}`}
-                  />
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
+                <Card
+                  key={prod.id}
+                  elevation={2}
+                  className={`${classes.animate}`}
+                >
+                  <CardHeader
+                    avatar={
+                      <Avatar className={classes.color}>
+                        {prod.Title[0].toUpperCase()}
+                      </Avatar>
+                    }
                     title={prod.Title}
-                    image={prod.Media.thumbUrl}
-                    src={prod.Media.thumbUrl}
+                    subheader={prod.Name}
+                    className={`${classes.bodyText}`}
+                  />
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      title={prod.Title}
+                      image={prod.Media.thumbUrl}
+                      src={prod.Media.thumbUrl}
                     />
-                  <CardContent>
-                    <div className={classes.disp}>
-                      <Typography variant="h6" color="primary">
-                        Price
-                      </Typography>
-                      <Typography variant="h6" color="primary">
-                        ${prod.Price}
-                      </Typography>
-                    </div>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-                    </Link>
+                    <CardContent>
+                      <div className={classes.disp}>
+                        <Typography variant="h6" color="primary">
+                          Price
+                        </Typography>
+                        <Typography variant="h6" color="primary">
+                          ${prod.Price}
+                        </Typography>
+                      </div>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
             </div>
           ))}
         </Masonry>

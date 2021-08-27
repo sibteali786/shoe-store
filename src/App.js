@@ -6,12 +6,21 @@ import ProductList from "./components/ProductList";
 import ProductIndex from "./components/ProductIndex";
 import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import { makeStyles } from "@material-ui/core";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
+import {
+  IconButton,
+  Toolbar,
+  Container,
+  Typography,
+  makeStyles,
+  AppBar,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
 import { useEffect, useState } from "react";
+import MenuIcon from "@material-ui/icons/Menu";
 function App() {
   const [productData, setproductData] = useState([]);
   useEffect(() => {
@@ -44,6 +53,10 @@ function App() {
     }
   }
   const classes = useStyles();
+  const [open, isOpen] = useState(false);
+  const handleDrawer = () => {
+    isOpen(!open);
+  };
   return (
     <div className="body">
       <Container>
@@ -63,24 +76,56 @@ function App() {
                   SHOE STORE
                 </Typography>
                 <div className={`${classes.root}`}>
-                  <Typography variant="h6" className={classes.h6}>
-                    <Link to="/" className="list">
-                      Home
-                    </Link>
-                  </Typography>
-                  <Typography variant="h6" className={classes.h6}>
-                    <Link to="product" className="list">
-                      Product
-                    </Link>
-                  </Typography>
-                  <Typography variant="h6" className={classes.h6}>
-                    <Link to="about" className="list">
-                      About
-                    </Link>
-                  </Typography>
+                  <div className={`${classes.root} ${classes.link}`}>
+                    <Typography variant="h6" className={classes.h6}>
+                      <Link to="/" className="list">
+                        Home
+                      </Link>
+                    </Typography>
+                    <Typography variant="h6" className={classes.h6}>
+                      <Link to="product" className="list">
+                        Product
+                      </Link>
+                    </Typography>
+                    <Typography variant="h6" className={classes.h6}>
+                      <Link to="about" className="list">
+                        About
+                      </Link>
+                    </Typography>
+                  </div>
+                  <IconButton
+                    onClick={handleDrawer}
+                    style={{ color: "#FFFFFF", fontSize: "2.5rem" }}
+                    className={classes.menuButton}
+                  >
+                    <MenuIcon />
+                  </IconButton>
                 </div>
               </Toolbar>
             </AppBar>
+            <Drawer
+              anchor="right"
+              open={open}
+              onClose={() => isOpen(false)}
+              className={`${classes.DrawerWidth} `}
+              classes={{ paper: `${classes.drawerPaper} ${classes.paper}` }}
+            >
+              <Typography variant="h6" className={classes.h_6}>
+                <Link to="/" className="list">
+                  Home
+                </Link>
+              </Typography>
+              <Typography variant="h6" className={classes.h_6}>
+                <Link to="product" className="list">
+                  Product
+                </Link>
+              </Typography>
+              <Typography variant="h6" className={classes.h_6}>
+                <Link to="about" className="list">
+                  About
+                </Link>
+              </Typography>
+            </Drawer>
           </nav>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -104,13 +149,20 @@ function App() {
 }
 
 export default App;
-
+const drawerWidth = 250;
 const useStyles = makeStyles((theme) => {
   return {
     root: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
+    },
+    paper: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#000000",
     },
     backColor: {
       backgroundColor: "#010101",
@@ -120,6 +172,19 @@ const useStyles = makeStyles((theme) => {
       fontFamily: "Montserrat",
       fontWeight: "500",
       marginLeft: theme.spacing(12),
+      transition: "0.2s ease-in",
+      "&:hover": {
+        textDecoration: "underline",
+        textUnderlinePosition: "under",
+        textDecorationThickness: "1.5px",
+        transform: "scale(1.2)",
+      },
+    },
+    h_6: {
+      fontSize: "1.3rem",
+      fontFamily: "Montserrat",
+      fontWeight: "500",
+      marginBottom: theme.spacing(10),
       transition: "0.2s ease-in",
       "&:hover": {
         textDecoration: "underline",
@@ -142,6 +207,23 @@ const useStyles = makeStyles((theme) => {
     },
     regular: {
       minHeight: 100,
+    },
+    link: {
+      [theme.breakpoints.down(850)]: {
+        display: "none",
+      },
+    },
+    menuButton: {
+      display: "none",
+      [theme.breakpoints.down(850)]: {
+        display: "block",
+      },
+    },
+    DrawerWidth: {
+      width: drawerWidth,
+    },
+    drawerPaper: {
+      width: drawerWidth,
     },
   };
 });
