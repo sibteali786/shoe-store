@@ -37,9 +37,10 @@ function ProductIndex({ productData }) {
               title={Title}
               image={Media.smallImageUrl}
               src={Media.smallImageUrl}
+              className={`${classes.media}`}
             />
           </div>
-          <div>
+          <div style={{ textAlign: "justify" }}>
             <CardHeader title={`${Brand}`} className={`${classes.content}`} />
             <CardContent>
               <Typography variant="h4">{Name}</Typography>
@@ -82,12 +83,17 @@ let theme = createTheme({
 theme = responsiveFontSizes(theme);
 const useStyles = makeStyles((theme) => {
   return {
-    root: {
-      display: "flex",
-      flexFlow: "row nowrap",
-      justifyContent: "space-between",
+    root: {},
+    media: {
+      float: "left",
+      width: "50%",
+      margin: "0 5% 5% 0",
       [theme.breakpoints.down(850)]: {
-        flexDirection: "column",
+        display: "flex",
+        float: "none",
+        width: "100%",
+        flexFlow: "column",
+        justifyContent: "center",
         alignItems: "flex-start",
       },
     },
@@ -98,6 +104,8 @@ const useStyles = makeStyles((theme) => {
       color: "rgb(255,255,255,1)",
     },
     disp: {
+      display: "flex",
+      justifyContent: "space-between",
       fontSize: "5rem",
       color: red[800],
     },
