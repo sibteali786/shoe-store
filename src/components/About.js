@@ -97,9 +97,10 @@ function About() {
           <a
             href="https://project_react_expense_tracker_sibteali.surge.sh/"
             style={{
-              textDecoration: "none",
               color: "inherit",
               fontWeight: "700",
+              textDecoration: "underline",
+              textUnderlinePosition: "under",
             }}
           >
             {" "}
@@ -111,9 +112,10 @@ function About() {
           <a
             href="https://sibteali786.github.io/Covid19_Tracker_App_By_BootCamp/"
             style={{
-              textDecoration: "none",
               color: "inherit",
               fontWeight: "700",
+              textDecoration: "underline",
+              textUnderlinePosition: "under",
             }}
           >
             {" "}
@@ -125,9 +127,10 @@ function About() {
           <a
             href="https://github.com/sibteali786/Python-Page-Rank"
             style={{
-              textDecoration: "none",
               color: "inherit",
               fontWeight: "700",
+              textDecoration: "underline",
+              textUnderlinePosition: "under",
             }}
           >
             {" "}
