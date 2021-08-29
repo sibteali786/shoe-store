@@ -5,6 +5,7 @@ import About from "./components/About";
 import ProductList from "./components/ProductList";
 import ProductIndex from "./components/ProductIndex";
 import NotFound from "./components/NotFound";
+import ContactUs from "./components/ContactUs";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   IconButton,
@@ -14,10 +15,6 @@ import {
   makeStyles,
   AppBar,
   Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
 } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -92,6 +89,11 @@ function App() {
                         About
                       </Link>
                     </Typography>
+                    <Typography variant="h6" className={classes.h6}>
+                      <Link to="contact" className="list">
+                        Contact Us
+                      </Link>
+                    </Typography>
                   </div>
                   <IconButton
                     onClick={handleDrawer}
@@ -104,7 +106,7 @@ function App() {
               </Toolbar>
             </AppBar>
             <Drawer
-              anchor="right"
+              anchor="top"
               open={open}
               onClose={() => isOpen(false)}
               className={`${classes.DrawerWidth} `}
@@ -125,6 +127,11 @@ function App() {
                   About
                 </Link>
               </Typography>
+              <Typography variant="h6" className={classes.h_6}>
+                <Link to="contact" className="list">
+                  Contact Us
+                </Link>
+              </Typography>
             </Drawer>
           </nav>
           <Routes>
@@ -140,6 +147,7 @@ function App() {
               ></Route>
             </Route>
             <Route path="about" element={<About />} />
+            <Route path="contact" element={<ContactUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
@@ -149,7 +157,7 @@ function App() {
 }
 
 export default App;
-const drawerWidth = 250;
+const drawerWidth = "100%";
 const useStyles = makeStyles((theme) => {
   return {
     maxWidthLg: {
@@ -174,7 +182,8 @@ const useStyles = makeStyles((theme) => {
       fontSize: "1rem",
       fontFamily: "Montserrat",
       fontWeight: "500",
-      marginLeft: theme.spacing(12),
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
       transition: "0.2s ease-in",
       "&:hover": {
         textDecoration: "underline",
@@ -187,7 +196,8 @@ const useStyles = makeStyles((theme) => {
       fontSize: "1.3rem",
       fontFamily: "Montserrat",
       fontWeight: "500",
-      marginBottom: theme.spacing(10),
+      marginBottom: theme.spacing(5),
+      marginTop: theme.spacing(5),
       transition: "0.2s ease-in",
       "&:hover": {
         textDecoration: "underline",

@@ -20,7 +20,8 @@ function Home() {
             </Typography>
 
             <Typography
-              variant="textPrimary"
+              variant="body1"
+              classes={{ body1: `${classes.text}` }}
               className={`${classes.headMargin}`}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
@@ -66,6 +67,9 @@ const useStyles = makeStyles((theme) => {
     },
     headMargin: {
       marginBottom: theme.spacing(3),
+    },
+    text: {
+      fontWeight: 50,
     },
   };
 });
