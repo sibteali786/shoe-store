@@ -87,12 +87,17 @@ function About() {
         align="center"
         style={{ fontFamily: "Montserrat" }}
       >
-        Syed Sibteali Baqar is a tech enthusiastic whether it concern developing
-        a project, Taking care of How it appears (Graphics Designing or
-        Visualization) or How much secure it will be (Cybersecurity). A Computer
-        Engineering student at NUST. He is interested to work as a Web Developer
-        , have experience in Html, Css, Bootstrap, Javascript and React js as a
-        Modern Library for making single page applications. like
+        <span style={{ fontWeight: "700" }}>Syed Sibteali Baqar </span>is a tech
+        enthusiastic whether it concern developing a project, Taking care of How
+        it appears (Graphics Designing or Visualization) or How much secure it
+        will be (Cybersecurity). A Computer Engineering student at NUST. He is
+        interested to work as a{" "}
+        <span style={{ fontWeight: "700" }}>Web Developer </span> , have
+        experience in{" "}
+        <span style={{ fontWeight: "700" }}>
+          Html, Css, Bootstrap, Javascript and React js{" "}
+        </span>{" "}
+        as a Modern Library for making single page applications. like
         <span>
           <a
             href="https://project_react_expense_tracker_sibteali.surge.sh/"
@@ -137,10 +142,18 @@ function About() {
             Page Rank Algorithm
           </a>{" "}
         </span>
-        using Python , Jupyter Notebook, Matplotlib and Plotly libraries.
-        Sibteali Baqar also loves to get involved in Communities and thus is a
-        part of Google Developer Club and a Deputy Director for Graphics
-        Designing of Tarteel ( A literature Society in EME,NUST ).
+        using{" "}
+        <span style={{ fontWeight: "700" }}>
+          {" "}
+          Python , Jupyter Notebook, Matplotlib and Plotly libraries{" "}
+        </span>
+        . Sibteali Baqar also loves to get involved in Communities and thus is a
+        part of{" "}
+        <span style={{ fontWeight: "700" }}>
+          {" "}
+          Google Developer Club and a Deputy Director for Graphics Designing of
+          Tarteel ( A literature Society in EME,NUST ).{" "}
+        </span>
       </Typography>
     </div>
   );
