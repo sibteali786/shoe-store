@@ -36,6 +36,7 @@ function ProductShortList({ productData }) {
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-start",
+              marginTop: "32px",
             }}
           >
             <Typography
@@ -165,7 +166,9 @@ const useStyles = makeStyles((theme) => {
       },
     },
     spacing: {
-      margin: theme.spacing(2),
+      [theme.breakpoints.down(950)]: {
+        marginTop: theme.spacing(3),
+      },
     },
     disp: {
       display: "flex",
