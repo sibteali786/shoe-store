@@ -47,9 +47,9 @@ function ProductShortList({ productData }) {
           </Typography>
 
           <Typography
-            variant="body2"
+            variant="body1"
             color="initial"
-            style={{ fontFamily: "montserrat", marginBottom: "30px" }}
+            style={{ fontFamily: "montserrat", marginBottom: "30px" , width:"80%"}}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
             reprehenderit dicta quisquam vitae fugit quas modi cumque debitis
@@ -57,18 +57,20 @@ function ProductShortList({ productData }) {
             libero! Doloribus provident, similique, recusandae aliquid quis nam
             consequatur possimus iste, excepturi eius consequuntur.
           </Typography>
-
-          <Button
-            variant="outlined"
-            color="primary"
-            style={{
-              color: "#FFFFFF",
-              border: "1px solid #FFFFFF",
-              width: "50%",
-            }}
-          >
-            Product
-          </Button>
+          <Link to="product" element={<Product />}>
+            <Button
+              variant="outlined"
+              color="primary"
+              style={{
+                color: "#FFFFFF",
+                border: "4px solid #FFFFFF",
+                width: "50%",
+                fontWeight:"700"
+              }}
+            >
+              Product
+            </Button>
+          </Link>
         </div>
         <div className={`${classes.disp}`}>
           {productData.slice(0, 3).map((prod) => (

@@ -136,7 +136,7 @@ function App() {
             </Drawer>
           </nav>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home productData={productData} />} />
             <Route path="product" element={<Product />}>
               <Route
                 path="/"
@@ -152,9 +152,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
-      </Container>
-      <Container classes={{ maxWidthLg: `${classes.maxWidthLg}` }}>
-        <ProductShortList productData={productData} />
       </Container>
     </div>
   );

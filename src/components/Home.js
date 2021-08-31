@@ -3,17 +3,18 @@ import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core";
+import ProductShortList from "./ProductShortList";
 import {
   createTheme,
   ThemeProvider,
   responsiveFontSizes,
 } from "@material-ui/core";
-function Home() {
+function Home({ productData }) {
   const classes = useStyles();
   return (
     <div style={{ fontFamily: "Montserrat" }}>
       <ThemeProvider theme={theme}>
-        <div className={`${classes.root}`}>
+        <div className={`${classes.root} ${classes.shape}`}>
           <Grid item className={`${classes.OnDiv} `}>
             <Typography variant="h2" className={`${classes.headMargin}`}>
               Welcome to Shoe Store !
@@ -37,6 +38,9 @@ function Home() {
               src={require("../images/old.jpg").default}
             />
           </Grid>
+        </div>
+        <div className={`${classes.shape}`}>
+          <ProductShortList productData={productData} />
         </div>
       </ThemeProvider>
     </div>
@@ -70,6 +74,9 @@ const useStyles = makeStyles((theme) => {
     },
     text: {
       fontWeight: 50,
+    },
+    shape: {
+      height: "100vh",
     },
   };
 });
