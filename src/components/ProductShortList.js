@@ -14,71 +14,78 @@ import { yellow } from "@material-ui/core/colors";
 import Product from "./Product";
 import ProductList from "./ProductList";
 import ProductIndex from "./ProductIndex";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@material-ui/core";
+
 export default ProductShortList;
 
 function ProductShortList({ productData }) {
   const classes = useStyles();
   return (
     <div>
-      <Grid
-        container
-        spacing={2}
-        direction="row"
-        justifyContent="space-between"
-        style={{ flexWrap: "nowrap" }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-          }}
-        >
-          <Typography
-            variant="h3"
-            color="initial"
+      <ThemeProvider theme={theme}>
+        <Grid container spacing={1} justifyContent="space-between">
+          <Grid
+            item
+            xs={12}
+            sm={4}
             style={{
-              fontFamily: "Montserrat",
-              float: "left",
-              marginBottom: "30px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
             }}
           >
-            Choose from a variety of different sneakers
-          </Typography>
-
-          <Typography
-            variant="body1"
-            color="initial"
-            style={{ fontFamily: "montserrat", marginBottom: "30px" , width:"80%"}}
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-            reprehenderit dicta quisquam vitae fugit quas modi cumque debitis
-            ullam voluptas, voluptates maxime fuga temporibus qui, facere
-            libero! Doloribus provident, similique, recusandae aliquid quis nam
-            consequatur possimus iste, excepturi eius consequuntur.
-          </Typography>
-          <Link to="product" element={<Product />}>
-            <Button
-              variant="outlined"
-              color="primary"
+            <Typography
+              variant="h4"
+              color="initial"
               style={{
-                color: "#FFFFFF",
-                border: "4px solid #FFFFFF",
-                width: "50%",
-                fontWeight:"700"
+                fontFamily: "Montserrat",
+                float: "left",
+                marginBottom: "30px",
               }}
             >
-              Product
-            </Button>
-          </Link>
-        </div>
-        <div className={`${classes.disp}`}>
-          {productData.slice(0, 3).map((prod) => (
+              Choose from a variety of different sneakers
+            </Typography>
+
+            <Typography
+              variant="body2"
+              color="initial"
+              style={{
+                fontFamily: "montserrat",
+                marginBottom: "30px",
+                width: "80%",
+              }}
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+              reprehenderit dicta quisquam vitae fugit quas modi cumque debitis
+              ullam voluptas, voluptates maxime fuga temporibus qui, facere
+              libero! Doloribus provident, similique, recusandae aliquid quis
+              nam consequatur possimus iste, excepturi eius consequuntur.
+            </Typography>
+            <Link to="product" element={<Product />}>
+              <Button
+                variant="outlined"
+                color="primary"
+                style={{
+                  color: "#FFFFFF",
+                  border: "4px solid #FFFFFF",
+                  width: "40%",
+                  fontWeight: "700",
+                }}
+              >
+                Product
+              </Button>
+            </Link>
+          </Grid>
+          {productData.slice(0, 2).map((prod) => (
             <Grid
               item
               key={prod.id}
-              xs={12}
-              md={3}
+              xs={6}
+              sm={3}
               className={`${classes.spacing}`}
             >
               <Card
@@ -116,14 +123,37 @@ function ProductShortList({ productData }) {
               </Card>
             </Grid>
           ))}
-        </div>
-      </Grid>
+        </Grid>
+      </ThemeProvider>
     </div>
   );
 }
-
+let theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 950,
+      md: 1000,
+      lg: 1250,
+      xl: 1500,
+    },
+  },
+});
 const useStyles = makeStyles((theme) => {
   return {
+    root: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexDirection: "row",
+      flexWrap: "nowrap",
+      [theme.breakpoints.down(1060)]: {
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+      },
+    },
+
     color: {
       backgroundColor: yellow[700],
     },
@@ -133,24 +163,25 @@ const useStyles = makeStyles((theme) => {
         transform: "scale(1.05)",
       },
     },
-    shape: {
-      width: "250px",
-      height: "370px",
+    spacing: {
+      margin: theme.spacing(2),
     },
     disp: {
       display: "flex",
       flexDirection: "row",
-      justifyContent: "space-between",
+      justifyContent: "center",
       alignItems: "center",
+      flexWrap: "nowrap",
+      [theme.breakpoints.down(950)]: {
+        justifyContent: "center",
+        alignItems: "space-between",
+      },
     },
     dispt: {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-    },
-    spacing: {
-      margin: theme.spacing(1),
     },
     outlinedPrimary: {
       color: "ffffff",

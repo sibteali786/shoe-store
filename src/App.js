@@ -162,7 +162,7 @@ const drawerWidth = "100%";
 const useStyles = makeStyles((theme) => {
   return {
     maxWidthLg: {
-      maxWidth: 1350,
+      maxWidth: "100vw",
       minHeight: "100vh",
     },
     root: {

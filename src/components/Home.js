@@ -39,7 +39,7 @@ function Home({ productData }) {
             />
           </Grid>
         </div>
-        <div className={`${classes.shape}`}>
+        <div className={`${classes.shape}`} >
           <ProductShortList productData={productData} />
         </div>
       </ThemeProvider>
