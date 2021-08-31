@@ -43,7 +43,9 @@ function ProductIndex({ productData }) {
           <div style={{ textAlign: "justify" }}>
             <CardHeader title={`${Brand}`} className={`${classes.content}`} />
             <CardContent>
-              <Typography variant="h4">{Name}</Typography>
+              <Typography variant="h4" align="left">
+                {Name}
+              </Typography>
               <Typography variant="h6">{Title}</Typography>
               <Typography variant="body1">{description}</Typography>
               <div className={`${classes.disp}`}>

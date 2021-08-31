@@ -6,6 +6,7 @@ import ProductList from "./components/ProductList";
 import ProductIndex from "./components/ProductIndex";
 import NotFound from "./components/NotFound";
 import ContactUs from "./components/ContactUs";
+import ProductShortList from "./components/ProductShortList";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   IconButton,
@@ -152,6 +153,9 @@ function App() {
           </Routes>
         </Router>
       </Container>
+      <Container classes={{ maxWidthLg: `${classes.maxWidthLg}` }}>
+        <ProductShortList productData={productData} />
+      </Container>
     </div>
   );
 }
@@ -162,6 +166,7 @@ const useStyles = makeStyles((theme) => {
   return {
     maxWidthLg: {
       maxWidth: 1350,
+      minHeight: "100vh",
     },
     root: {
       display: "flex",
@@ -208,7 +213,7 @@ const useStyles = makeStyles((theme) => {
     },
     toolbar: theme.mixins.toolbar,
     margintop: {
-      marginTop: theme.spacing(15),
+      marginTop: theme.spacing(10),
     },
     elevation4: {
       boxShadow:
