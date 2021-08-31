@@ -6,7 +6,6 @@ import ProductList from "./components/ProductList";
 import ProductIndex from "./components/ProductIndex";
 import NotFound from "./components/NotFound";
 import ContactUs from "./components/ContactUs";
-import ProductShortList from "./components/ProductShortList";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   IconButton,
