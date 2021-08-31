@@ -30,8 +30,8 @@ function ProductShortList({ productData }) {
         <Grid container spacing={1} justifyContent="space-between">
           <Grid
             item
-            xs={12}
-            sm={4}
+            sm={12}
+            md={4}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -84,8 +84,9 @@ function ProductShortList({ productData }) {
             <Grid
               item
               key={prod.id}
-              xs={6}
-              sm={3}
+              xs={12}
+              sm={5}
+              md={3}
               className={`${classes.spacing}`}
             >
               <Card
@@ -132,7 +133,7 @@ let theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 950,
+      sm: 600,
       md: 1000,
       lg: 1250,
       xl: 1500,
