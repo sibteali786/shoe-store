@@ -31,6 +31,8 @@
 body {
   color: #ffffff;
   background-color: #010101;
+  margin: 0;
+  height: 100vh;
 }
 .list {
   list-style-type: none;

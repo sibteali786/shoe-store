@@ -30,7 +30,11 @@ function ProductIndex({ productData }) {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Card elevation={20} className={`${classes.root} ${classes.backcolor}`}>
+        <Card
+          elevation={20}
+          className={`${classes.root} ${classes.backcolor}`}
+          style={{ marginTop: "30px" }}
+        >
           <div>
             <CardMedia
               component="img"
