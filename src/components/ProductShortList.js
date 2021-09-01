@@ -21,7 +21,15 @@ function ProductShortList({ productData }) {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Grid container spacing={1} justifyContent="space-between">
+        <Grid
+          container
+          spacing={1}
+          justifyContent="space-between"
+          alignItems="center"
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.58)",
+          }}
+        >
           <Grid
             item
             sm={12}
@@ -30,7 +38,9 @@ function ProductShortList({ productData }) {
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-start",
-              marginTop: "32px",
+              marginLeft: "32px",
+              marginTop: "10%",
+              marginBottom: "10%",
             }}
           >
             <Typography
@@ -83,10 +93,15 @@ function ProductShortList({ productData }) {
               sm={5}
               md={3}
               className={`${classes.spacing}`}
+              style={{
+                marginRight: "30px",
+                marginTop: "10%",
+                marginBottom: "10%",
+              }}
             >
               <Card
                 key={prod.id}
-                elevation={2}
+                elevation={20}
                 className={`${classes.animate} ${classes.shape}`}
               >
                 <CardHeader
@@ -183,6 +198,13 @@ const useStyles = makeStyles((theme) => {
     },
     outlinedPrimary: {
       color: "ffffff",
+    },
+
+    heightCon: {
+      height: "600px",
+      [theme.breakpoints.down(950)]: {
+        height: "70%",
+      },
     },
   };
 });
