@@ -163,6 +163,7 @@ const useStyles = makeStyles((theme) => {
     maxWidthLg: {
       maxWidth: "100vw",
       minHeight: "100vh",
+      padding: 0,
     },
     root: {
       display: "flex",
@@ -209,7 +210,7 @@ const useStyles = makeStyles((theme) => {
     },
     toolbar: theme.mixins.toolbar,
     margintop: {
-      marginTop: theme.spacing(10),
+      marginTop: theme.spacing(4),
     },
     elevation4: {
       boxShadow:

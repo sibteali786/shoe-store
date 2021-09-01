@@ -12,10 +12,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { yellow } from "@material-ui/core/colors";
 import Product from "./Product";
-import {
-  createTheme,
-  ThemeProvider,
-} from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
 export default ProductShortList;
 
@@ -73,15 +70,15 @@ function ProductShortList({ productData }) {
                   width: "40%",
                   fontWeight: "700",
                 }}
-                >
+              >
                 Product
               </Button>
-          </Link>
+            </Link>
           </Grid>
           {productData.slice(0, 2).map((prod) => (
             <Grid
-            item
-            key={prod.id}
+              item
+              key={prod.id}
               xs={12}
               sm={5}
               md={3}
@@ -91,7 +88,7 @@ function ProductShortList({ productData }) {
                 key={prod.id}
                 elevation={2}
                 className={`${classes.animate} ${classes.shape}`}
-                >
+              >
                 <CardHeader
                   avatar={
                     <Avatar className={classes.color}>
@@ -107,7 +104,7 @@ function ProductShortList({ productData }) {
                     title={prod.Title}
                     image={prod.Media.thumbUrl}
                     src={prod.Media.thumbUrl}
-                    />
+                  />
                   <CardContent>
                     <div className={classes.dispt}>
                       <Typography variant="h6" color="primary">

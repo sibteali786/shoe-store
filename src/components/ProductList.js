@@ -26,6 +26,7 @@ function ProductList({ productData }) {
           breakpointCols={breakpoints}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
+          style={{ marginTop: "30px" }}
         >
           {productData.map((prod) => (
             <div>

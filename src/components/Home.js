@@ -12,7 +12,7 @@ import {
 function Home({ productData }) {
   const classes = useStyles();
   return (
-    <div style={{ fontFamily: "Montserrat" }}>
+    <div style={{ fontFamily: "Montserrat", backgroundColor: "#000000" }}>
       <ThemeProvider theme={theme}>
         <div className={`${classes.root} ${classes.shape}`}>
           <Grid item className={`${classes.OnDiv} `}>
@@ -39,7 +39,7 @@ function Home({ productData }) {
             />
           </Grid>
         </div>
-        <div className={`${classes.shape}`} >
+        <div className={`${classes.shape}`}>
           <ProductShortList productData={productData} />
         </div>
       </ThemeProvider>
