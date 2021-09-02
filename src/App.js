@@ -113,21 +113,33 @@ function App() {
               classes={{ paper: `${classes.drawerPaper} ${classes.paper}` }}
             >
               <Typography variant="h6" className={classes.h_6}>
-                <Link to="/" className="list">
+                <Link to="/" className="list" onClick={handleDrawer}>
                   Home
                 </Link>
               </Typography>
-              <Typography variant="h6" className={classes.h_6}>
+              <Typography
+                variant="h6"
+                className={classes.h_6}
+                onClick={handleDrawer}
+              >
                 <Link to="product" className="list">
                   Product
                 </Link>
               </Typography>
-              <Typography variant="h6" className={classes.h_6}>
+              <Typography
+                variant="h6"
+                className={classes.h_6}
+                onClick={handleDrawer}
+              >
                 <Link to="about" className="list">
                   About
                 </Link>
               </Typography>
-              <Typography variant="h6" className={classes.h_6}>
+              <Typography
+                variant="h6"
+                className={classes.h_6}
+                onClick={handleDrawer}
+              >
                 <Link to="contact" className="list">
                   Contact
                 </Link>
