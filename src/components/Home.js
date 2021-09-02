@@ -26,8 +26,8 @@ function Home({ productData }) {
           alignItems="center"
           style={{ margin: "2rem auto 0" }}
         >
-          <Grid item xs={11} sm={8} md={5}>
-            <Typography variant="h2" className={`textAlign`}>
+          <Grid item xs={11} sm={11} md={5}>
+            <Typography variant="h2" className={`textAlign `}>
               Shoe Store
             </Typography>
 
@@ -42,7 +42,7 @@ function Home({ productData }) {
               exercitationem odit, eveniet in.
             </Typography>
           </Grid>
-          <Grid item xs={11} sm={8} md={6}>
+          <Grid item xs={11} sm={11} md={6}>
             <CardMedia
               component="img"
               image={require("../images/old.jpg").default}

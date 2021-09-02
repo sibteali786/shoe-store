@@ -32,7 +32,7 @@ function ProductShortList({ productData }) {
         >
           <Grid
             item
-            xs={11}
+            xs={10}
             sm={11}
             md={4}
             style={{
@@ -72,16 +72,7 @@ function ProductShortList({ productData }) {
               nam consequatur possimus iste, excepturi eius consequuntur.
             </Typography>
             <Link to="product" element={<Product />}>
-              <Button
-                variant="outlined"
-                color="primary"
-                style={{
-                  color: "#040403",
-                  border: "4px solid #040403",
-                  width: "40%",
-                  fontWeight: "700",
-                }}
-              >
+              <Button variant="outlined" className={`${classes.btnEffects}`}>
                 Product
               </Button>
             </Link>
@@ -155,7 +146,7 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: yellow[700],
     },
     animate: {
-      transition: "0.2s ease-in-out",
+      transition: "0.3s ease-in",
       "&:hover": {
         transform: "scale(1.05)",
       },
@@ -179,6 +170,17 @@ const useStyles = makeStyles((theme) => {
       height: "600px",
       [theme.breakpoints.down(950)]: {
         height: "70%",
+      },
+    },
+    btnEffects: {
+      color: "#FFFFFF",
+      backgroundColor: "#040403",
+      border: "2px solid #040403",
+      width: "40%",
+      fontWeight: "700",
+      transition: "0.25s ease-in",
+      "&:hover": {
+        backgroundColor: "#3E92CC",
       },
     },
   };

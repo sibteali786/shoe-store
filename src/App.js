@@ -186,7 +186,7 @@ const useStyles = makeStyles((theme) => {
       fontWeight: "500",
       marginLeft: theme.spacing(3),
       marginRight: theme.spacing(6),
-      transition: "0.25s ease-in",
+      transition: "0.3s ease-in",
       "&:hover": {
         backgroundColor: "#3E92CC",
         padding: "1.5% 2%",

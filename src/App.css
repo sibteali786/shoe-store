@@ -39,12 +39,16 @@ body {
   text-decoration: none;
   color: #ffffff;
 }
-
+.textAlign {
+  font-size: 5rem;
+}
 @media only screen and (max-width: 1000px) {
   .textAlign {
     text-align: center;
+    font-size: 4rem;
   }
 }
+
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
