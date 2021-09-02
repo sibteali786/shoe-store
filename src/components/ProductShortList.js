@@ -76,8 +76,8 @@ function ProductShortList({ productData }) {
                 variant="outlined"
                 color="primary"
                 style={{
-                  color: "#FFFFFF",
-                  border: "4px solid #FFFFFF",
+                  color: "#040403",
+                  border: "4px solid #040403",
                   width: "40%",
                   fontWeight: "700",
                 }}

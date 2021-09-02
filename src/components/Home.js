@@ -19,16 +19,22 @@ function Home({ productData }) {
       }}
     >
       <ThemeProvider theme={theme}>
-        <div className={`${classes.root} ${classes.shape}`}>
-          <Grid item className={`${classes.OnDiv} `}>
-            <Typography variant="h2" className={`${classes.headMargin}`}>
-              Welcome to Shoe Store !
+        <Grid
+          container
+          spacing={2}
+          justifyContent="space-evenly"
+          alignItems="center"
+          style={{ margin: "2rem auto 0" }}
+        >
+          <Grid item xs={11} sm={8} md={5}>
+            <Typography variant="h2" className={`textAlign`}>
+              Shoe Store
             </Typography>
 
             <Typography
               variant="body1"
               classes={{ body1: `${classes.text}` }}
-              className={`${classes.headMargin}`}
+              className={`textAlign`}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
               voluptates dolor eveniet culpa magnam id quod commodi ex
@@ -36,14 +42,14 @@ function Home({ productData }) {
               exercitationem odit, eveniet in.
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={11} sm={8} md={6}>
             <CardMedia
               component="img"
               image={require("../images/old.jpg").default}
               src={require("../images/old.jpg").default}
             />
           </Grid>
-        </div>
+        </Grid>
         <div className={`${classes.shape}`}>
           <ProductShortList productData={productData} />
         </div>
@@ -53,21 +59,20 @@ function Home({ productData }) {
 }
 
 export default Home;
-let theme = createTheme();
+let theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 1000,
+      lg: 1250,
+      xl: 1500,
+    },
+  },
+});
 theme = responsiveFontSizes(theme);
 const useStyles = makeStyles((theme) => {
   return {
-    root: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      flexDirection: "row",
-      [theme.breakpoints.down(850)]: {
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "flex-start",
-      },
-    },
     OnDiv: {
       width: "50%",
       [theme.breakpoints.down(850)]: {

@@ -40,6 +40,11 @@ body {
   color: #ffffff;
 }
 
+@media only screen and (max-width: 1000px) {
+  .textAlign {
+    text-align: center;
+  }
+}
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
