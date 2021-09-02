@@ -15,8 +15,8 @@ function ProductList({ productData }) {
   const breakpoints = {
     default: 4,
     1200: 3,
-    750: 2,
-    500: 1,
+    850: 2,
+    600: 1,
   };
   const classes = useStyles();
   return (
@@ -26,7 +26,7 @@ function ProductList({ productData }) {
           breakpointCols={breakpoints}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
-          style={{ marginTop: "30px" }}
+          style={{ margin: "50px 40px 50px 0" }}
         >
           {productData.map((prod) => (
             <div>

@@ -21,10 +21,9 @@ function Home({ productData }) {
       <ThemeProvider theme={theme}>
         <Grid
           container
-          spacing={2}
           justifyContent="space-evenly"
           alignItems="center"
-          style={{ margin: "2rem auto 0" }}
+          style={{ margin: "2rem auto 2rem" }}
         >
           <Grid item xs={11} sm={11} md={5}>
             <Typography variant="h2" className={`textAlign `}>
@@ -42,7 +41,7 @@ function Home({ productData }) {
               exercitationem odit, eveniet in.
             </Typography>
           </Grid>
-          <Grid item xs={11} sm={11} md={6}>
+          <Grid item xs={11} sm={11} md={5}>
             <CardMedia
               component="img"
               image={require("../images/old.jpg").default}
@@ -70,6 +69,7 @@ let theme = createTheme({
     },
   },
 });
+
 theme = responsiveFontSizes(theme);
 const useStyles = makeStyles((theme) => {
   return {

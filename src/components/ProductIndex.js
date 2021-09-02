@@ -33,7 +33,7 @@ function ProductIndex({ productData }) {
         <Card
           elevation={20}
           className={`${classes.root} ${classes.backcolor}`}
-          style={{ marginTop: "30px" }}
+          style={{ margin: "50px 50px 0 50px" }}
         >
           <div>
             <CardMedia
@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => {
     media: {
       float: "left",
       width: "50%",
-      margin: "0 5% 5% 0",
+      margin: "0 2% 1.5% 0",
       [theme.breakpoints.down(850)]: {
         display: "flex",
         float: "none",

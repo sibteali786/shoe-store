@@ -86,7 +86,7 @@ function ProductShortList({ productData }) {
               md={3}
               className={`${classes.spacing}`}
               style={{
-                margin: "5% 1%",
+                margin: "5% 0",
               }}
             >
               <Card
