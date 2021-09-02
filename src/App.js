@@ -61,7 +61,7 @@ function App() {
           <nav>
             <div className={`${classes.toolbar} ${classes.margintop}`}></div>
             <AppBar
-              className={`${classes.backColor} ${classes.elevation4}`}
+              className={`${classes.backColor}`}
               // className={classes.appbar}
             >
               <Toolbar className={`${classes.root} ${classes.regular}`}>
@@ -91,7 +91,7 @@ function App() {
                     </Typography>
                     <Typography variant="h6" className={classes.h6}>
                       <Link to="contact" className="list">
-                        Contact Us
+                        Contact
                       </Link>
                     </Typography>
                   </div>
@@ -129,7 +129,7 @@ function App() {
               </Typography>
               <Typography variant="h6" className={classes.h_6}>
                 <Link to="contact" className="list">
-                  Contact Us
+                  Contact
                 </Link>
               </Typography>
             </Drawer>
@@ -178,20 +178,20 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: "#000000",
     },
     backColor: {
-      backgroundColor: "#010101",
+      backgroundColor: "#040403",
     },
     h6: {
       fontSize: "1rem",
       fontFamily: "Montserrat",
       fontWeight: "500",
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2),
-      transition: "0.2s ease-in",
+      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(6),
+      transition: "0.3s ease-in",
       "&:hover": {
-        textDecoration: "underline",
-        textUnderlinePosition: "under",
-        textDecorationThickness: "1.5px",
-        transform: "scale(1.2)",
+        backgroundColor: "#3E92CC",
+        padding: "1.5% 2%",
+        borderRadius: "6%",
+        fontWeight: "600",
       },
     },
     h_6: {
@@ -214,7 +214,7 @@ const useStyles = makeStyles((theme) => {
     },
     elevation4: {
       boxShadow:
-        "0px 6px 6px -3px rgba(0, 0, 0, 0.2),0px 6px 10px 1px rgba(0, 0, 0, 0.14),0px 2px 14px 3px rgba(0, 0, 0, 0.12)",
+        "0px 6px 6px -3px rgba(4, 4, 3, 0.2),0px 6px 10px 1px rgba(4, 4, 3, 0.14),0px 2px 14px 3px rgba(4, 4, 3, 0.12)",
     },
     h3: {
       fontFamily: "Rampart One",

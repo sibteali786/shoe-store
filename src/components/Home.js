@@ -12,7 +12,12 @@ import {
 function Home({ productData }) {
   const classes = useStyles();
   return (
-    <div style={{ fontFamily: "Montserrat", backgroundColor: "#000000" }}>
+    <div
+      style={{
+        fontFamily: "Montserrat",
+        backgroundColor: "#040403",
+      }}
+    >
       <ThemeProvider theme={theme}>
         <div className={`${classes.root} ${classes.shape}`}>
           <Grid item className={`${classes.OnDiv} `}>

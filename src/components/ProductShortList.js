@@ -24,32 +24,33 @@ function ProductShortList({ productData }) {
         <Grid
           container
           spacing={1}
-          justifyContent="space-between"
+          justifyContent="space-evenly"
           alignItems="center"
           style={{
-            backgroundColor: "rgba(255, 255, 255, 0.58)",
+            backgroundColor: "#FFFFFF",
           }}
         >
           <Grid
             item
-            sm={12}
+            xs={11}
+            sm={11}
             md={4}
             style={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-start",
               marginLeft: "32px",
-              marginTop: "10%",
-              marginBottom: "10%",
+              margin: "5% 0%",
             }}
           >
             <Typography
               variant="h4"
-              color="initial"
               style={{
                 fontFamily: "Montserrat",
                 float: "left",
                 marginBottom: "30px",
+                color: "#040403",
+                fontWeight: "700",
               }}
             >
               Choose from a variety of different sneakers
@@ -57,11 +58,11 @@ function ProductShortList({ productData }) {
 
             <Typography
               variant="body2"
-              color="initial"
               style={{
                 fontFamily: "montserrat",
                 marginBottom: "30px",
                 width: "80%",
+                color: "#040403",
               }}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
@@ -89,14 +90,12 @@ function ProductShortList({ productData }) {
             <Grid
               item
               key={prod.id}
-              xs={12}
+              xs={9}
               sm={5}
               md={3}
               className={`${classes.spacing}`}
               style={{
-                marginRight: "30px",
-                marginTop: "10%",
-                marginBottom: "10%",
+                margin: "5% 1%",
               }}
             >
               <Card
@@ -152,19 +151,6 @@ let theme = createTheme({
 });
 const useStyles = makeStyles((theme) => {
   return {
-    root: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      flexDirection: "row",
-      flexWrap: "nowrap",
-      [theme.breakpoints.down(1060)]: {
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-      },
-    },
-
     color: {
       backgroundColor: yellow[700],
     },
@@ -177,17 +163,6 @@ const useStyles = makeStyles((theme) => {
     spacing: {
       [theme.breakpoints.down(950)]: {
         marginTop: theme.spacing(3),
-      },
-    },
-    disp: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "center",
-      flexWrap: "nowrap",
-      [theme.breakpoints.down(950)]: {
-        justifyContent: "center",
-        alignItems: "space-between",
       },
     },
     dispt: {
