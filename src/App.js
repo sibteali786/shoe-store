@@ -5,7 +5,6 @@ import About from "./components/About";
 import ProductList from "./components/ProductList";
 import ProductIndex from "./components/ProductIndex";
 import NotFound from "./components/NotFound";
-import ContactUs from "./components/ContactUs";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   IconButton,
@@ -89,11 +88,6 @@ function App() {
                         About
                       </Link>
                     </Typography>
-                    <Typography variant="h6" className={classes.h6}>
-                      <Link to="contact" className="list">
-                        Contact
-                      </Link>
-                    </Typography>
                   </div>
                   <IconButton
                     onClick={handleDrawer}
@@ -135,15 +129,6 @@ function App() {
                   About
                 </Link>
               </Typography>
-              <Typography
-                variant="h6"
-                className={classes.h_6}
-                onClick={handleDrawer}
-              >
-                <Link to="contact" className="list">
-                  Contact
-                </Link>
-              </Typography>
             </Drawer>
           </nav>
           <Routes>
@@ -159,7 +144,6 @@ function App() {
               ></Route>
             </Route>
             <Route path="about" element={<About />} />
-            <Route path="contact" element={<ContactUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

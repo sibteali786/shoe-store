@@ -175,6 +175,7 @@ const useStyles = makeStyles((theme) => {
     btnEffects: {
       color: "#FFFFFF",
       backgroundColor: "#040403",
+      textDecoration: "none",
       border: "2px solid #040403",
       width: "40%",
       fontWeight: "700",

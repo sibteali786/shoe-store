@@ -49,9 +49,7 @@ function Home({ productData }) {
             />
           </Grid>
         </Grid>
-        <div className={`${classes.shape}`}>
-          <ProductShortList productData={productData} />
-        </div>
+        <ProductShortList productData={productData} />
       </ThemeProvider>
     </div>
   );
@@ -85,8 +83,6 @@ const useStyles = makeStyles((theme) => {
     text: {
       fontWeight: 50,
     },
-    shape: {
-      height: "100vh",
-    },
+    shape: {},
   };
 });
