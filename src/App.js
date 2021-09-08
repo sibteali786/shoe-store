@@ -17,9 +17,13 @@ import {
 } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+
 function App() {
+  const [loading, setLoading] = useState(false);
   const [productData, setproductData] = useState([]);
   useEffect(() => {
+    setLoading(true);
     requestSneakers();
   }, []);
 
@@ -43,7 +47,7 @@ function App() {
         Url: prod.urlKey,
       }));
       setproductData(modProducts);
-      console.log(Products);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -55,99 +59,105 @@ function App() {
   };
   return (
     <div className={`body`}>
-      <Container classes={{ maxWidthLg: `${classes.maxWidthLg}` }}>
-        <Router>
-          <nav>
-            <div className={`${classes.toolbar} ${classes.margintop}`}></div>
-            <AppBar
-              className={`${classes.backColor}`}
-              // className={classes.appbar}
-            >
-              <Toolbar className={`${classes.root} ${classes.regular}`}>
-                <Typography
-                  variant="h3"
-                  color="#ffffff"
-                  className={`${classes.h3}`}
-                >
-                  SHOE STORE
-                </Typography>
-                <div className={`${classes.root}`}>
-                  <div className={`${classes.root} ${classes.link}`}>
-                    <Typography variant="h6" className={classes.h6}>
-                      <Link to="/" className="list">
-                        Home
-                      </Link>
-                    </Typography>
-                    <Typography variant="h6" className={classes.h6}>
-                      <Link to="product" className="list">
-                        Product
-                      </Link>
-                    </Typography>
-                    <Typography variant="h6" className={classes.h6}>
-                      <Link to="about" className="list">
-                        About
-                      </Link>
-                    </Typography>
-                  </div>
-                  <IconButton
-                    onClick={handleDrawer}
-                    style={{ color: "#FFFFFF", fontSize: "2.5rem" }}
-                    className={classes.menuButton}
+      {loading ? (
+        <div className="App">
+          <ClimbingBoxLoader color={"#ffffff"} loading={loading} size={20} />
+        </div>
+      ) : (
+        <Container classes={{ maxWidthLg: `${classes.maxWidthLg}` }}>
+          <Router>
+            <nav>
+              <div className={`${classes.toolbar} ${classes.margintop}`}></div>
+              <AppBar
+                className={`${classes.backColor}`}
+                // className={classes.appbar}
+              >
+                <Toolbar className={`${classes.root} ${classes.regular}`}>
+                  <Typography
+                    variant="h3"
+                    color="#ffffff"
+                    className={`${classes.h3}`}
                   >
-                    <MenuIcon />
-                  </IconButton>
-                </div>
-              </Toolbar>
-            </AppBar>
-            <Drawer
-              anchor="top"
-              open={open}
-              onClose={() => isOpen(false)}
-              className={`${classes.DrawerWidth} `}
-              classes={{ paper: `${classes.drawerPaper} ${classes.paper}` }}
-            >
-              <Typography variant="h6" className={classes.h_6}>
-                <Link to="/" className="list" onClick={handleDrawer}>
-                  Home
-                </Link>
-              </Typography>
-              <Typography
-                variant="h6"
-                className={classes.h_6}
-                onClick={handleDrawer}
+                    SHOE STORE
+                  </Typography>
+                  <div className={`${classes.root}`}>
+                    <div className={`${classes.root} ${classes.link}`}>
+                      <Typography variant="h6" className={classes.h6}>
+                        <Link to="/" className="list">
+                          Home
+                        </Link>
+                      </Typography>
+                      <Typography variant="h6" className={classes.h6}>
+                        <Link to="product" className="list">
+                          Product
+                        </Link>
+                      </Typography>
+                      <Typography variant="h6" className={classes.h6}>
+                        <Link to="about" className="list">
+                          About
+                        </Link>
+                      </Typography>
+                    </div>
+                    <IconButton
+                      onClick={handleDrawer}
+                      style={{ color: "#FFFFFF", fontSize: "2.5rem" }}
+                      className={classes.menuButton}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </div>
+                </Toolbar>
+              </AppBar>
+              <Drawer
+                anchor="top"
+                open={open}
+                onClose={() => isOpen(false)}
+                className={`${classes.DrawerWidth} `}
+                classes={{ paper: `${classes.drawerPaper} ${classes.paper}` }}
               >
-                <Link to="product" className="list">
-                  Product
-                </Link>
-              </Typography>
-              <Typography
-                variant="h6"
-                className={classes.h_6}
-                onClick={handleDrawer}
-              >
-                <Link to="about" className="list">
-                  About
-                </Link>
-              </Typography>
-            </Drawer>
-          </nav>
-          <Routes>
-            <Route path="/" element={<Home productData={productData} />} />
-            <Route path="product" element={<Product />}>
-              <Route
-                path="/"
-                element={<ProductList productData={productData} />}
-              ></Route>
-              <Route
-                path=":productId"
-                element={<ProductIndex productData={productData} />}
-              ></Route>
-            </Route>
-            <Route path="about" element={<About />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Router>
-      </Container>
+                <Typography variant="h6" className={classes.h_6}>
+                  <Link to="/" className="list" onClick={handleDrawer}>
+                    Home
+                  </Link>
+                </Typography>
+                <Typography
+                  variant="h6"
+                  className={classes.h_6}
+                  onClick={handleDrawer}
+                >
+                  <Link to="product" className="list">
+                    Product
+                  </Link>
+                </Typography>
+                <Typography
+                  variant="h6"
+                  className={classes.h_6}
+                  onClick={handleDrawer}
+                >
+                  <Link to="about" className="list">
+                    About
+                  </Link>
+                </Typography>
+              </Drawer>
+            </nav>
+            <Routes>
+              <Route path="/" element={<Home productData={productData} />} />
+              <Route path="product" element={<Product />}>
+                <Route
+                  path="/"
+                  element={<ProductList productData={productData} />}
+                ></Route>
+                <Route
+                  path=":productId"
+                  element={<ProductIndex productData={productData} />}
+                ></Route>
+              </Route>
+              <Route path="about" element={<About />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Router>
+        </Container>
+      )}
     </div>
   );
 }
