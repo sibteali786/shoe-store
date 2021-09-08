@@ -5,7 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Avatar from "@material-ui/core/Avatar";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, responsiveFontSizes } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { yellow } from "@material-ui/core/colors";
 import { createTheme, ThemeProvider } from "@material-ui/core";
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: "#212121",
@@ -114,3 +114,5 @@ const theme = createTheme({
     },
   },
 });
+
+theme = responsiveFontSizes(theme);
